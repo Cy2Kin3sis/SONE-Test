@@ -1,24 +1,28 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const GirlsGen());
 
-class MyApp extends StatelessWidget {
+class GirlsGen extends StatelessWidget {
+  const GirlsGen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MultiPageApp(),
+      home: GGView(),
     );
   }
 }
 
-class MultiPageApp extends StatefulWidget {
+class GGView extends StatefulWidget {
+  const GGView({super.key});
+
   @override
-  _MultiPageAppState createState() => _MultiPageAppState();
+  GGViewState createState() => GGViewState();
 }
 
-class _MultiPageAppState extends State<MultiPageApp> {
+class GGViewState extends State<GGView> {
   final PageController _pageController = PageController();
 
   int _currentPage = 0;
@@ -30,7 +34,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
       });
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     }
@@ -43,7 +47,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
       });
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     }
@@ -65,7 +69,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
               // Page 1: Cover
               Container(
                 color: Colors.pinkAccent,
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Welcome Page",
                     textAlign: TextAlign.center,
@@ -82,7 +86,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
               Scaffold(
                 appBar: AppBar(
                   backgroundColor: Colors.pink,
-                  title: Text(
+                  title: const Text(
                     "Girls' Generation Members",
                     style: TextStyle(
                       color: Colors.white,
@@ -125,11 +129,11 @@ class _MultiPageAppState extends State<MultiPageApp> {
               // Page 3: SNSDice
               Scaffold(
                 appBar: AppBar(
-                  title: Text("Sonyeo Si-dice (Dice Generation)"),
+                  title: const Text("Sonyeo Si-dice (Dice Generation)"),
                   backgroundColor: Colors.pink,
                 ),
                 backgroundColor: Colors.pinkAccent,
-                body: SNSDicePage(),
+                body: const SNSDicePage(),
               ),
             ],
           ),
@@ -137,7 +141,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
             left: 10,
             top: MediaQuery.of(context).size.height / 2 - 30,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white),
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
               onPressed: _previousPage,
             ),
           ),
@@ -145,7 +149,7 @@ class _MultiPageAppState extends State<MultiPageApp> {
             right: 10,
             top: MediaQuery.of(context).size.height / 2 - 30,
             child: IconButton(
-              icon: Icon(Icons.arrow_forward, color: Colors.white),
+              icon: const Icon(Icons.arrow_forward, color: Colors.white),
               onPressed: _nextPage,
             ),
           ),
@@ -168,10 +172,10 @@ class _MultiPageAppState extends State<MultiPageApp> {
             ),
           ),
         ),
-        SizedBox(height: 8.0), // Space between the image and text
+        const SizedBox(height: 8.0), // Space between the image and text
         Text(
           name,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 10.0,
@@ -183,11 +187,13 @@ class _MultiPageAppState extends State<MultiPageApp> {
 }
 
 class SNSDicePage extends StatefulWidget {
+  const SNSDicePage({super.key});
+
   @override
-  _SNSDicePageState createState() => _SNSDicePageState();
+  SNSDicePageState createState() => SNSDicePageState();
 }
 
-class _SNSDicePageState extends State<SNSDicePage> {
+class SNSDicePageState extends State<SNSDicePage> {
   int leftMemberIndex = 1;
   int rightMemberIndex = 1;
 
