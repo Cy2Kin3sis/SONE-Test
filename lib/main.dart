@@ -8,9 +8,10 @@ class GirlsGen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'Segoe Print', appBarTheme: const AppBarTheme(backgroundColor: Colors.pink, titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Segoe Print'))),
       debugShowCheckedModeBanner: false,
-      home: GGView(),
+      home: const GGView(),
     );
   }
 }
@@ -29,26 +30,15 @@ class GGViewState extends State<GGView> {
 
   void _nextPage() {
     if (_currentPage < 2) {
-      setState(() {
-        _currentPage++;
-      });
-      _pageController.animateToPage(
-        _currentPage,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+      setState(() => _currentPage++);
+      _pageController.animateToPage(_currentPage, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
     }
   }
 
   void _previousPage() {
     if (_currentPage > 0) {
-      setState(() {
-        _currentPage--;
-      });
-      _pageController.animateToPage(
-        _currentPage,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
+      setState(() => _currentPage--);
+      _pageController.animateToPage(_currentPage, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut,
       );
     }
   }
@@ -60,13 +50,8 @@ class GGViewState extends State<GGView> {
         children: [
           PageView(
             controller: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
+            onPageChanged: (index) => setState(() => _currentPage = index),
             children: [
-              // Page 1: Cover
               Container(
                 color: Colors.pinkAccent,
                 child: const Center(
@@ -77,22 +62,13 @@ class GGViewState extends State<GGView> {
                       fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Segoe Print',
                     ),
                   ),
                 ),
               ),
               // Page 2: Members Grid
               Scaffold(
-                appBar: AppBar(
-                  backgroundColor: Colors.pink,
-                  title: const Text(
-                    "Girls' Generation Members",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                appBar: AppBar(title: const Text("Girls' Generation Members")),
                 backgroundColor: Colors.pinkAccent,
                 body: SafeArea(
                   child: Column(
