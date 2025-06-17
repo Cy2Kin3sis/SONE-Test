@@ -69,7 +69,7 @@ void memberInfo(BuildContext context, int memberId) {
       fullName = 'Seo Ju-hyun';
       birthdate = 'June 28, 1991';
       position = 'Lead Vocalist; Maknae';
-      description = 'Actress who also participated in musical plays';
+      description = 'Youngest member and actress who also participated in musical plays';
       break;
     default:
       name = 'Unknown';
@@ -81,10 +81,10 @@ void memberInfo(BuildContext context, int memberId) {
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: Colors.pink[100], // Light/carnation pink
-        title: Text(name, style: const TextStyle(color: Colors.black)),
-        content: Text('$fullName\n$birthdate\n$position\n$description', style: const TextStyle(color: Colors.black)),
+        title: Text(name, style: const TextStyle(color: Colors.pink, fontWeight: FontWeight.bold)),
+        content: Text('Name: $fullName\nBorn: $birthdate\nPosition: $position\n$description', style: const TextStyle(color: Colors.pink)),
         actions: <Widget>[
-          TextButton(child: const Text('Close', style: TextStyle(color: Colors.black)), onPressed: () => Navigator.of(context).pop()),
+          TextButton(child: const Text('Close', style: TextStyle(color: Colors.pink)), onPressed: () => Navigator.of(context).pop()),
         ],
       );
     },
