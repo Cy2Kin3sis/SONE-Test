@@ -133,12 +133,12 @@ class SNSDicePage extends StatefulWidget {
 class SNSDicePageState extends State<SNSDicePage> {
   int leftMemberIndex = 1;
   int rightMemberIndex = 1;
-  bool hasRolled = false;
+  bool isMatch = false;
 
   void changeMemberFaces() => setState(() {
     leftMemberIndex = Random().nextInt(9) + 1;
     rightMemberIndex = Random().nextInt(9) + 1;
-    if(leftMemberIndex == rightMemberIndex) hasRolled = true;
+    if(leftMemberIndex == rightMemberIndex) isMatch = true;
   });
 
   @override
@@ -173,7 +173,7 @@ class SNSDicePageState extends State<SNSDicePage> {
             ],
           ),
           const SizedBox(height: 20),
-          if(hasRolled)
+          if(isMatch)
             const Text('You got a match!', style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold)),
         ],
       ),
