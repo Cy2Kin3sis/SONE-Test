@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'formats.dart';
 import 'info.dart';
 
 class GGView extends StatefulWidget {
@@ -37,7 +38,7 @@ class GGViewState extends State<GGView> {
             controller: _pageController,
             onPageChanged: (index) => setState(() => _currentPage = index),
             children: [
-              Container(color: Colors.pinkAccent, child: const Center(child: Text("Welcome Page", textAlign: TextAlign.center, style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold)))),
+              Container(color: Colors.pinkAccent, child: const Center(child: Text("Welcome Page", textAlign: TextAlign.center, style: textStyle))),
               Scaffold(
                 appBar: AppBar(title: const Text("Girls' Generation Members")),
                 backgroundColor: Colors.pinkAccent,
@@ -138,7 +139,11 @@ class SNSDicePageState extends State<SNSDicePage> {
   void changeMemberFaces() => setState(() {
     leftMemberIndex = Random().nextInt(9) + 1;
     rightMemberIndex = Random().nextInt(9) + 1;
-    if(leftMemberIndex == rightMemberIndex) isMatch = true;
+    if(leftMemberIndex == rightMemberIndex) {
+      isMatch = true;
+    } else {
+      isMatch = false;
+    }
   });
 
   @override
@@ -153,9 +158,9 @@ class SNSDicePageState extends State<SNSDicePage> {
             label: const Text('Roll'),
             onPressed: () => changeMemberFaces(),
           ),
-          const SizedBox(height: 20), // Add spacing between button and images
+          sbh(context, 6),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center, // Center the images horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'images/igab$leftMemberIndex.png',
@@ -163,7 +168,7 @@ class SNSDicePageState extends State<SNSDicePage> {
                 height: size,
                 fit: BoxFit.cover,
               ),
-              const SizedBox(width: 20), // Spacing between the images
+              const SizedBox(width: 20),
               Image.asset(
                 'images/igab$rightMemberIndex.png',
                 width: size,
@@ -172,9 +177,14 @@ class SNSDicePageState extends State<SNSDicePage> {
               ),
             ],
           ),
-          const SizedBox(height: 20),
-          if(isMatch)
-            const Text('You got a match!', style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold)),
+          sbh(context, 4),
+          // Reserve space for the text whether it's shown or not
+          SizedBox(
+            height: 30, // Adjust to match the height of the text
+            child: isMatch
+                ? Text('You got a match!', style: textStyle.copyWith(fontSize: 20))
+                : const SizedBox.shrink(), // Empty widget
+          ),
         ],
       ),
     );
