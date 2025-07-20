@@ -143,37 +143,32 @@ class SNSDicePageState extends State<SNSDicePage> {
 
   @override
   Widget build(BuildContext context) {
+    double size = MediaQuery.of(context).size.width * 0.25;
     return Center(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Center(
-            child: ElevatedButton.icon(
-              icon: const Icon(Icons.refresh),
-              label: const Text('Roll'),
-              onPressed: () => changeMemberFaces(),
-            ),
+          ElevatedButton.icon(
+            icon: const Icon(Icons.refresh),
+            label: const Text('Roll'),
+            onPressed: () => changeMemberFaces(),
           ),
+          const SizedBox(height: 20), // Add spacing between button and images
           Row(
-            children: <Widget>[
-              Expanded(
-                child: TextButton(
-                  child: Image.asset(
-                    'images/igab$leftMemberIndex.png',
-                  ),
-                  onPressed: () {
-                    changeMemberFaces();
-                  },
-                ),
+            mainAxisAlignment: MainAxisAlignment.center, // Center the images horizontally
+            children: [
+              Image.asset(
+                'images/igab$leftMemberIndex.png',
+                width: size,
+                height: size,
+                fit: BoxFit.cover,
               ),
-              Expanded(
-                child: TextButton(
-                  child: Image.asset(
-                    'images/igab$rightMemberIndex.png',
-                  ),
-                  onPressed: () {
-                    changeMemberFaces();
-                  },
-                ),
+              const SizedBox(width: 20), // Spacing between the images
+              Image.asset(
+                'images/igab$rightMemberIndex.png',
+                width: size,
+                height: size,
+                fit: BoxFit.cover,
               ),
             ],
           ),
