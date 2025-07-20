@@ -149,7 +149,7 @@ class SNSDicePageState extends State<SNSDicePage> {
           Center(
             child: ElevatedButton.icon(
               icon: const Icon(Icons.refresh),
-              label: Text('Roll'),
+              label: const Text('Roll'),
               onPressed: () => changeMemberFaces(),
             ),
           ),
