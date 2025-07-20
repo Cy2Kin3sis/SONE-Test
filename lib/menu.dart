@@ -154,9 +154,13 @@ class SNSDicePageState extends State<SNSDicePage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton.icon(
-            icon: const Icon(Icons.refresh),
-            label: const Text('Roll'),
+            icon: const Icon(Icons.autorenew_rounded, size: 24),
+            label: const Text('Roll', style: TextStyle(color: Colors.pink, fontSize: 24)),
             onPressed: () => changeMemberFaces(),
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.pink,
+              backgroundColor: Colors.white,
+            ),
           ),
           sbh(context, 6),
           Row(
