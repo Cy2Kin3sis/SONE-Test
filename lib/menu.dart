@@ -144,27 +144,38 @@ class SNSDicePageState extends State<SNSDicePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: TextButton(
-              child: Image.asset(
-                'images/igab$leftMemberIndex.png',
-              ),
-              onPressed: () {
-                changeMemberFaces();
-              },
+      child: Column(
+        children: [
+          Center(
+            child: ElevatedButton.icon(
+              icon: const Icon(Icons.refresh),
+              label: Text('Roll'),
+              onPressed: () => changeMemberFaces(),
             ),
           ),
-          Expanded(
-            child: TextButton(
-              child: Image.asset(
-                'images/igab$rightMemberIndex.png',
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: TextButton(
+                  child: Image.asset(
+                    'images/igab$leftMemberIndex.png',
+                  ),
+                  onPressed: () {
+                    changeMemberFaces();
+                  },
+                ),
               ),
-              onPressed: () {
-                changeMemberFaces();
-              },
-            ),
+              Expanded(
+                child: TextButton(
+                  child: Image.asset(
+                    'images/igab$rightMemberIndex.png',
+                  ),
+                  onPressed: () {
+                    changeMemberFaces();
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),
