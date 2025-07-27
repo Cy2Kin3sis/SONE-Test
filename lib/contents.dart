@@ -125,7 +125,7 @@ class SNSDicePageState extends State<SNSDicePage> {
             SizedBox(
               height: 30, // Adjust to match the height of the text
               child: isMatch
-                  ? Text('You got a match!', style: textStyle.copyWith(fontSize: 20))
+                  ? Text('You got the same member!', style: textStyle.copyWith(fontSize: 20))
                   : const SizedBox.shrink(), // Empty widget
             ),
           ],
