@@ -10,7 +10,13 @@ class GirlsGen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Segoe Print', appBarTheme: const AppBarTheme(backgroundColor: Colors.pink, titleTextStyle: TextStyle(color: white, fontSize: 20, fontFamily: 'Segoe Print'))),
+      theme: ThemeData(
+        fontFamily: 'Segoe Print',
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.pink,
+          titleTextStyle: TextStyle(color: white, fontSize: 20, fontFamily: 'Segoe Print'),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: const GGView(),
     );
