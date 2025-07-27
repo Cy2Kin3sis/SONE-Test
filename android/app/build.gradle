@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.snsd_all"
+    namespace = "com.example.sone_test"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
