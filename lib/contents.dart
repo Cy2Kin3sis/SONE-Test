@@ -1,27 +1,23 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import 'formats.dart';
 import 'info.dart';
 
 class MembersPage extends StatelessWidget {
   const MembersPage({super.key});
 
-  Widget memberContainer(String imagePath, String name, VoidCallback onTap) => Column(
-    children: [
-      GestureDetector(
-        onTap: onTap,
-        child: Container(
-          height: 100.0,
-          width: 100.0,
-          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover)),
-        ),
+  Widget memberContainer(String imagePath, String name, VoidCallback onTap) => Column(children: [
+    GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 100,
+        width: 100,
+        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover)),
       ),
-      const SizedBox(height: 8.0), // Space between the image and text
-      Text(name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.0),),
-    ],
-  );
+    ),
+    const SizedBox(height: 8.0), // Space between the image and text
+    Text(name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.0)),
+  ]);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -100,30 +96,17 @@ class SNSDicePageState extends State<SNSDicePage> {
                 foregroundColor: Colors.pink,
                 backgroundColor: Colors.white,
               ),
-            ),
-            sbh(context, 6),
+            ), sbh(context, 6),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/igab$leftMemberIndex.png',
-                  width: size,
-                  height: size,
-                  fit: BoxFit.cover,
-                ),
+                Image.asset('images/igab$leftMemberIndex.png', width: size, height: size, fit: BoxFit.cover),
                 const SizedBox(width: 20),
-                Image.asset(
-                  'images/igab$rightMemberIndex.png',
-                  width: size,
-                  height: size,
-                  fit: BoxFit.cover,
-                ),
+                Image.asset('images/igab$rightMemberIndex.png', width: size, height: size, fit: BoxFit.cover),
               ],
-            ),
-            sbh(context, 4),
-            // Reserve space for the text whether it's shown or not
+            ), sbh(context, 4),
             SizedBox(
-              height: 30, // Adjust to match the height of the text
+              height: 30,
               child: isMatch
                   ? Text('You got the same member!', style: textStyle.copyWith(fontSize: 20))
                   : const SizedBox.shrink(), // Empty widget
