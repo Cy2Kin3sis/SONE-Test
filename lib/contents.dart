@@ -77,6 +77,21 @@ class SNSDicePageState extends State<SNSDicePage> {
     }
   });
 
+  String getNamesFromPics(int memberIndex) {
+    switch(memberIndex) {
+      case 1: return 'Taeyeon';
+      case 2: return 'Jessica';
+      case 3: return 'Sunny';
+      case 4: return 'Tiffany';
+      case 5: return 'Hyoyeon';
+      case 6: return 'Yuri';
+      case 7: return 'Sooyoung';
+      case 8: return 'Yoona';
+      case 9: return 'Seohyun';
+      default: return 'Unknown';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width * 0.25;
@@ -108,7 +123,7 @@ class SNSDicePageState extends State<SNSDicePage> {
             SizedBox(
               height: 30,
               child: isMatch
-                  ? Text('You got the same member!', style: textStyle.copyWith(fontSize: 20))
+                  ? Text('You got the same member! It\'s ${getNamesFromPics(leftMemberIndex)}!', style: textStyle.copyWith(fontSize: 20))
                   : const SizedBox.shrink(), // Empty widget
             ),
           ],
