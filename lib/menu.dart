@@ -1,13 +1,20 @@
+/// menu.dart
+///
+/// This file contains the menu class of the app.
+library;
+
 import 'package:flutter/material.dart';
 import 'contents.dart';
 import 'formats.dart';
 
 class GGView extends StatefulWidget {
+  /// Main menu.
   const GGView({super.key});
-
   @override
   GGViewState createState() => GGViewState();
 }
+
+/// State class for [GGView].
 class GGViewState extends State<GGView> {
   @override
   Widget build(BuildContext context) => DefaultTabController(
@@ -24,11 +31,7 @@ class GGViewState extends State<GGView> {
           ],
         ),
       ),
-      body: const TabBarView(
-        children: [
-          MembersPage(),
-          SNSDicePage(),
-        ],
+      body: const TabBarView(children: [MembersPage(), SNSDicePage()],
       ),
     ),
   );
