@@ -14,8 +14,7 @@ class MembersPage extends StatelessWidget {
         width: 100,
         decoration: BoxDecoration(image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover)),
       ),
-    ),
-    const SizedBox(height: 8.0), // Space between the image and text
+    ), sbhf(8),
     Text(name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.0)),
   ]);
 
@@ -115,8 +114,7 @@ class SNSDicePageState extends State<SNSDicePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/igab$leftMemberIndex.png', width: size, height: size, fit: BoxFit.cover),
-                const SizedBox(width: 20),
+                Image.asset('images/igab$leftMemberIndex.png', width: size, height: size, fit: BoxFit.cover), sbwf(20),
                 Image.asset('images/igab$rightMemberIndex.png', width: size, height: size, fit: BoxFit.cover),
               ],
             ), sbhc(context, 4),
