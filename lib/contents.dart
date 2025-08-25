@@ -111,7 +111,7 @@ class SNSDicePageState extends State<SNSDicePage> {
                 foregroundColor: Colors.pink,
                 backgroundColor: Colors.white,
               ),
-            ), sbh(context, 6),
+            ), sbhc(context, 6),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -119,7 +119,7 @@ class SNSDicePageState extends State<SNSDicePage> {
                 const SizedBox(width: 20),
                 Image.asset('images/igab$rightMemberIndex.png', width: size, height: size, fit: BoxFit.cover),
               ],
-            ), sbh(context, 4),
+            ), sbhc(context, 4),
             SizedBox(
               height: 30,
               child: isMatch
